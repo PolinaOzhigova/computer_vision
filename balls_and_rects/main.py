@@ -16,7 +16,7 @@ circles = 0
 for region in regions:
     color = hsv[region.bbox[0]:region.bbox[2], region.bbox[1]:region.bbox[3], 0]
     key = np.max(color[0])
-    if np.all(color[0][0] != 0):
+    if len(np.unique(color)) == 1:
         rects += 1
         rects_colors[key] = rects_colors.get(key, 0) + 1
     else:
